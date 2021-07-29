@@ -10,6 +10,7 @@ export class LoaderPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // console.log(`We are in loader page`);
   }
 
 }
