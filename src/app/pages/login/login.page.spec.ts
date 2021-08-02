@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { AppRoutingModule } from 'src/app/app-routing.module';
@@ -15,7 +16,8 @@ describe('LoginPage', () => {
       declarations: [ LoginPage ],
       imports: [
         IonicModule.forRoot(),
-        AppRoutingModule
+        AppRoutingModule,
+        ReactiveFormsModule
       ]
     }).compileComponents();
 
@@ -29,6 +31,11 @@ describe('LoginPage', () => {
   // it('should create', () => {
   //   expect(component).toBeTruthy();
   // });
+  it(`It should initially create a form in ngOnIt`, ()=>{
+    component.ngOnInit();
+    expect(component.form).not.toBeUndefined();
+  });
+
   it(`It should redirect to home page`, ()=>{
     spyOn(router, 'navigate');
     component.login();
